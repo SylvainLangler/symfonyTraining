@@ -55,17 +55,42 @@ Le premier paramètre est le template twig et le 2ème est un tableau associatif
 
 `<h1>{{ title }}</h1>`
 
+
+# Les vues
+
+Twig est le moteur de templates utilisé par Symfony.
+
+Dans le dossier templates de Symfony, il y a le fichier base.html.twig qui sert de layout global, pouvant être utilisé sur chaque page. Pour cela, il faut que sur chaque autre fichier html.twig, il y ait en tout premier: `{% extends 'base.html.twig' %}` et qu'ensuite, le reste de la page soit englobé dans un block body (défini dans base.html.twig) comme ceci:
+
+```
+
+{% extends 'base.html.twig' %}
+
+{% block body}
+
+    Contenu
+
+{% endblock %}
+
+```
+
 # Gestion de la base de données - Doctrine
 
 Doctrine est un ORM (Object Relational Mapping), il permet de faire le lien entre une application et une base de données. Dans le cas de Symfony, il permet aux classes php et aux objets de refléter les tables et les données de la base de données.
 
-Entity -> Table 
+#### Entity -> Table 
 
-Manager -> Manipuler les données 
+#### Manager -> Manipuler les données 
 
-Repository -> Selectionner les données
+#### Repository -> Selectionner les données
 
 Une migration est un fichier permettant de définir la base de données et les tables. L'utilisation de fichiers est pratique pour avoir la même base de données entre développeurs, il suffit de faire marcher les scripts de migration.
 
 Les fixtures sont des scripts permettant des jeux de données (fausses données). Dans laravel, cela est appelé "seeders".
+
+Le nom de la BDD, le user et le password sont définis dans le .env
+
+### La base de données peut être générée en exécutant la commande: `php bin/console doctrine:database:create`
+
+### Pour créer une entity (table): `php bin/console make:entity`
 
