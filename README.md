@@ -90,7 +90,21 @@ Les fixtures sont des scripts permettant des jeux de données (fausses données)
 
 Le nom de la BDD, le user et le password sont définis dans le .env
 
-### La base de données peut être générée en exécutant la commande: `php bin/console doctrine:database:create`
+#### La base de données peut être générée en exécutant la commande: `php bin/console doctrine:database:create`
 
-### Pour créer une entity (table): `php bin/console make:entity`
+#### Pour créer une entity (table): `php bin/console make:entity`
 
+#### Mettre à jour le script des migrations: `php bin/console make:migration`
+
+#### Lancer les migrations: `php bin/console doctrine:migrations:migrate`
+
+#### Pour pouvoir utiliser les fixtures (scripts générant des données), il faut faire: `composer require orm-fixtures --dev`
+
+##### Pour créer une fixture: `php bin/console make:fixtures`
+
+Exemple de fixture: 
+
+![image info](./md_screens/fixture.png)
+
+##### Pour charger les fixtures: `php bin/console doctrine:fixtures:load`
+#### Attention, cela va purger la base de données et mettre les données des fixtures !
