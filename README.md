@@ -53,3 +53,18 @@ Les annotations /** **/ permettent de définir la route sur laquelle cette fonct
 Le premier paramètre est le template twig et le 2ème est un tableau associatif permettant de lier un nom de variable à une valeur. On pourra ensuite l'afficher dans notre template en utilisant l'interpolation comme ceci:
 
 `<h1>{{ title }}</h1>`
+
+# Gestion de la base de données - Doctrine
+
+Doctrine est un ORM (Object Relational Mapping), il permet de faire le lien entre une application et une base de données. Dans le cas de Symfony, il permet aux classes php et aux objets de refléter les tables et les données de la base de données.
+
+Entity -> Table 
+
+Manager -> Manipuler les données 
+
+Repository -> Selectionner les données
+
+Une migration est un fichier permettant de définir la base de données et les tables. L'utilisation de fichiers est pratique pour avoir la même base de données entre développeurs, il suffit de faire marcher les scripts de migration.
+
+Les fixtures sont des scripts permettant des jeux de données (fausses données). Dans laravel, cela est appelé "seeders".
+
