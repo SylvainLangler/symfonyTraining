@@ -37,7 +37,8 @@ Créer un controller:
 
 Exemple de fonction d'un controller
 
-`   /**
+```  
+    /**
      * @Route("/", name="home")
      */
     public function home(){
@@ -45,7 +46,7 @@ Exemple de fonction d'un controller
             'title' => 'bienvenue sur le site'
         ]);
     }
-`
+```
 
 Les annotations /** **/ permettent de définir la route sur laquelle cette fonction va être appelée et 
 `$this->render` permet d'afficher une vue.
