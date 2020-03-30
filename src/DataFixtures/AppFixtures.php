@@ -10,7 +10,7 @@ class AppFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
-        for($i = 0; $i < 10; $i++){
+        for($i = 1; $i <= 10; $i++){
             $article = new Article();
             $article->setTitle("Titre de l'article ".$i)
                     ->setContent("Contenu de l'article ".$i)
