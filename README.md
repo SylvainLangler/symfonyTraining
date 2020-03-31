@@ -138,7 +138,7 @@ Dans le dossier templates de Symfony, il y a le fichier base.html.twig qui sert 
 
 #### Boucle for
 
-```php
+```twig
 
 {% for article in articles %}
 
@@ -182,7 +182,34 @@ Le nom de la BDD, le user et le password sont définis dans le .env
 
 Exemple de fixture: 
 
-![image info](./md_screens/fixture.png)
+```php
+
+<?php
+
+namespace App\DataFixtures;
+
+use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\Persistence\ObjectManager;
+use App\Entity\Article;
+
+class AppFixtures extends Fixture
+{
+    public function load(ObjectManager $manager)
+    {
+        for($i = 1; $i <= 10; $i++){
+            $article = new Article();
+            $article->setTitle("Titre de l'article ".$i)
+                    ->setContent("Contenu de l'article ".$i)
+                    ->setImage("http://placehold.it/350x150")
+                    ->setCreatedAt(new \DateTime());
+            $manager->persist($article);
+        }
+
+        $manager->flush();
+    }
+}
+
+```
 
 ##### Pour charger les fixtures: `php bin/console doctrine:fixtures:load`
 #### Attention, cela va purger la base de données et mettre les données des fixtures !
@@ -197,7 +224,7 @@ Ajouter `form_themes: ['bootstrap_4_layout.html.twig']`
 
 pour avoir accès à un formulaire bootstrapé directement, en n'utilisant que le code suivant:
 
-```html
+```twig
 
 {% extends 'base.html.twig' %}
 
