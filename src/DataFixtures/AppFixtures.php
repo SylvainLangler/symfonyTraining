@@ -14,7 +14,7 @@ class AppFixtures extends Fixture
             $article = new Article();
             $article->setTitle("Titre de l'article ".$i)
                     ->setContent("Contenu de l'article ".$i)
-                    ->setImage("http://placehold.it/350*150")
+                    ->setImage("http://placehold.it/350x150")
                     ->setCreatedAt(new \DateTime());
             $manager->persist($article);
         }
