@@ -14,6 +14,22 @@ ou
 
 `symfony serve`
 
+## Pour installer ce projet
+
+### `git clone https://github.com/SylvainLangler/symfonyTraining.git`
+
+### `cd symfonyTraining`
+
+### Vérifier le .env pour la base de données et potentielles configurations
+
+### composer install
+
+### `php bin/console doctrine:migrations:migrate`
+
+### `php bin/console doctrine:fixtures:load`
+
+### `symfony serve`
+
 # Informations utiles
 
 Tutoriel officiel Symfony 5: [https://symfonycasts.com/screencast/symfony/setup](https://symfonycasts.com/screencast/symfony/setup)
@@ -37,7 +53,7 @@ Créer un controller:
 
 Exemple de fonction d'un controller
 
-```  
+```php  
     /**
      * @Route("/", name="home")
      */
@@ -61,7 +77,7 @@ Le premier paramètre est le template twig et le 2ème est un tableau associatif
 
 Grace à l'injection de dépendances de Symfony, on peut récupérer directement le repository dont on a besoin comme ici:
 
-```
+```php
 /**
      * @Route("/blog", name="blog")
      */
@@ -88,9 +104,19 @@ Grace à l'injection de dépendances de Symfony, on peut récupérer directement
 
 # Les routes
 
-Si on a un controller ayant pour route `@Route("/", name="home")`
+Si on a une fonction d'un controller ayant pour route `@Route("/", name="home")`
 
 On peut appeler cette route dans un template en faisant `{{ path('blog_create') }}`
+
+Une fonction de controller peut avoir plusieurs routes 
+
+```php
+    /**
+     * @Route("/blog/new", name="blog_create")
+     * @Route("/blog/article/{id}/edit", name="blog_edit")
+     * Cette fonction permet à la fois la création d'article et la modification d'un article en fonction de la route appelée
+    */
+```
 
 # Les vues
 
@@ -98,7 +124,7 @@ Twig est le moteur de templates utilisé par Symfony.
 
 Dans le dossier templates de Symfony, il y a le fichier base.html.twig qui sert de layout global, pouvant être utilisé sur chaque page. Pour cela, il faut que sur chaque autre fichier html.twig, il y ait en tout premier: `{% extends 'base.html.twig' %}` et qu'ensuite, le reste de la page soit englobé dans un block body (défini dans base.html.twig) comme ceci:
 
-```
+```php
 
 {% extends 'base.html.twig' %}
 
@@ -112,7 +138,7 @@ Dans le dossier templates de Symfony, il y a le fichier base.html.twig qui sert 
 
 #### Boucle for
 
-```
+```php
 
 {% for article in articles %}
 
@@ -152,6 +178,8 @@ Le nom de la BDD, le user et le password sont définis dans le .env
 
 ##### Pour créer une fixture: `php bin/console make:fixtures`
 
+###### Pour vider la base de données: `php bin/console doctrine:schema:drop --force`
+
 Exemple de fixture: 
 
 ![image info](./md_screens/fixture.png)
@@ -169,7 +197,7 @@ Ajouter `form_themes: ['bootstrap_4_layout.html.twig']`
 
 pour avoir accès à un formulaire bootstrapé directement, en n'utilisant que le code suivant:
 
-```
+```html
 
 {% extends 'base.html.twig' %}
 
@@ -198,7 +226,7 @@ pour avoir accès à un formulaire bootstrapé directement, en n'utilisant que l
 Lors de la soumission d'un formulaire, il appelle la même fonction qui fait le rendu d'affichage du form.
 Ainsi la fonction qui gère le formulaire ressemble à ça:
 
-```
+```php
 /**
      * @Route("/blog/new", name="blog_create")
      * @Route("/blog/article/{id}/edit", name="blog_edit")
@@ -266,7 +294,7 @@ ajouter `use Symfony\Component\Validator\Constraints as Assert;`
 
 Exemple de contrainte sur la longueur d'une chaine de caractères:
 
-```
+```php
 
 /**
      * @ORM\Column(type="string", length=255)
