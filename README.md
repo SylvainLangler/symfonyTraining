@@ -22,7 +22,7 @@ ou
 
 ### Vérifier le .env pour la base de données et potentielles configurations
 
-### composer install
+### `composer install`
 
 ### `php bin/console doctrine:migrations:migrate`
 
@@ -240,7 +240,7 @@ class AppFixtures extends Fixture
 #### Attention, cela va purger la base de données et mettre les données des fixtures !
 
 # Formulaires
-
+    
 Config
 - packages
     - twig.yaml
