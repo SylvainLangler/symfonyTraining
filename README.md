@@ -45,6 +45,31 @@ Saisir Settings, ouvrir le JSON et ajouter
 
 Thèmes bootstrap: [https://bootswatch.com/](https://bootswatch.com/)
 
+# Arborescence des fichiers Symfony
+
+```bash
+├── bin `Contient la console de symfony`
+├── config `Fichiers de config`
+├── public `Dossier dans lequel pointe le serveur web`
+├── src 
+│   ├── Controller 
+│   ├── DataFixtures `Dossier des fixtures, fausses données générées pour la bdd`
+│   ├── Entity
+│   ├── Migrations
+│   ├── Repository `Dossiers des repositories, utilisés pour faire le lien avec la base de données`
+├── templates
+│    ├── Autres dossiers de templates
+│    ├── base.html.twig `Layout utilisé pour toutes les pages du site`
+├── tests
+├── translations
+├── var
+├── vendor
+├── .env
+├── .env.test
+├── composer.json
+└── ...
+```
+
 # Les controllers
 
 Créer un controller:
@@ -328,5 +353,41 @@ Exemple de contrainte sur la longueur d'une chaine de caractères:
      * @Assert\Length(min= 10, max=255, minMessage="Votre titre est trop court")
      */
     private $title;
+
+```
+
+# Relations entre entités
+
+Lorsque l'on créé ou met à jour une entité avec `php bin/console make:entity`, lors de l'ajout d'une propriété, on peut donner le type 'relation' et le terminal va nous guider pour pouvoir lier cette propriété à une autre entité.
+
+Il y a un exemple ici: [https://symfony.com/doc/current/doctrine/associations.html#mapping-the-manytoone-relationship](https://symfony.com/doc/current/doctrine/associations.html#mapping-the-manytoone-relationship)
+
+##### Dans les vues on peut ensuite récupérer directement les objets liés, par exemple pour récupérer la catégorie d'un article:
+`{{ article.category.title }}`
+
+# Librairie Faker
+
+### Faker permet de générer des données aléatoires
+
+### Pour pouvoir s'en servir dans le projet il suffit de faire:
+
+`composer require fzaninotto/faker --dev`
+
+#### Exemple d'utilisation de faker dans une fixture:
+
+```php
+
+$faker = \Faker\Factory::create('fr_FR');
+
+// Créer 3 catégories
+for($i = 1; $i <= 3; $i++){
+    $category = new Category();
+    $category->setTitle($faker->sentence())
+             ->setDescription($faker->paragraph());
+
+    $manager->persist($category);
+}
+
+$manager->flush();
 
 ```

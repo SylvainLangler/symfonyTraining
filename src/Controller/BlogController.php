@@ -6,9 +6,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\Article;
+use App\Entity\Category;
 use App\Repository\ArticleRepository;
 
 class BlogController extends AbstractController
@@ -61,6 +63,10 @@ class BlogController extends AbstractController
         // Création du formulaire en lui donnant notre objet article, pour qu'il ait un modèle à suivre
         $form = $this->createFormBuilder($article)
                     ->add('title', TextType::class)
+                    ->add('category', EntityType::class, [
+                        'class' => Category::class,
+                        'choice_label' => 'title'
+                    ])
                     ->add('content', TextareaType::class)
                     ->add('image', TextType::class)
                     ->getForm();
