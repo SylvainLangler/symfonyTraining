@@ -14,7 +14,7 @@
 
 ## `symfony serve`
 
-# Liens doc
+# Liens documentation
 
 ## [https://github.com/SylvainLangler/symfonyTraining/tree/master/doc/informations.md](Informations utiles)
 
