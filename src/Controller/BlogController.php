@@ -22,7 +22,7 @@ class BlogController extends AbstractController
     {
         //$repo = $this->getDoctrine()->getRepository(Article::class);
         $articles = $repo->findAll();
-        return $this->render('blog/index.html.twig', [
+        return $this->render('blog/articles.html.twig', [
             'controller_name' => 'BlogController',
             'articles' => $articles
         ]);
@@ -43,7 +43,7 @@ class BlogController extends AbstractController
     public function show(Article $article){
        // $repo = $this->getDoctrine()->getRepository(Article::class);
        // $article = $repo->find($id);
-        return $this->render('blog/show.html.twig', [
+        return $this->render('blog/article.html.twig', [
             'article' => $article
         ]);
     }
