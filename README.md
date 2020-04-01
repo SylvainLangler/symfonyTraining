@@ -45,6 +45,18 @@ Saisir Settings, ouvrir le JSON et ajouter
 
 Thèmes bootstrap: [https://bootswatch.com/](https://bootswatch.com/)
 
+### Changelog Symfony 4 to 5
+
+- un composant String pour les objets concernant du texte
+
+- un composant Notifier qui permet d’envoyer des notifications sur plusieurs supports
+
+- suppression du code déprécié
+
+- amélioration des composants existants, des fonctionnalités déjà présentes
+
+Les plus gros changements n’ont finalement pas tant porté sur les fonctionnalités, mais plutôt sur la façon de penser les mises à jour et la gestion des versions.
+
 # Arborescence des fichiers Symfony
 
 ```bash
