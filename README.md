@@ -410,8 +410,8 @@ $manager->flush();
 
 Tutos: 
 
-[https://symfony.com/doc/current/security.html](Composant de sécurité symfony)
+[Composant de sécurité symfony](https://symfony.com/doc/current/security.html)
 
-[https://symfony.com/doc/current/doctrine/registration_form.html](Inscription)
+[Inscription](https://symfony.com/doc/current/doctrine/registration_form.html)
 
-[https://symfony.com/doc/current/security/form_login_setup.html](Login)
+[Login](https://symfony.com/doc/current/security/form_login_setup.html)
