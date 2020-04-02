@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div>{{ app.user.firstName }} {{ app.user.lastName}}</div>
+
+    {% if app.user.profile %}
+
+        <div>{{ app.user.profile.title }}</div>
+        <div>{{ app.user.profile.description }}</div>
+
+    {% endif %}
+
+{% endblock %}

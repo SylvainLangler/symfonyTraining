@@ -31,9 +31,9 @@
                         <a class="nav-link" href="{{ path('app_login') }}">Se connecter</a>
                     </li>
                     {% else %}
-                    <span class="navbar-text">
-                        {{ app.user.firstName }} {{ app.user.lastName }}
-                    </span>
+                    <li class="nav-item">
+                        <a href="{{ path('user_profile') }}" class="nav-link">{{ app.user.firstName }} {{ app.user.lastName }}</a>
+                    </li>
                     {% if is_granted('ROLE_ADMIN') %}
                     <span class="navbar-text ml-4 mr-4">
                         Vous êtes un admin ! 

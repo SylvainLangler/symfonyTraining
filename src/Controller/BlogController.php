@@ -108,4 +108,12 @@ class BlogController extends AbstractController
             'editMode' => $article->getId() !== null
         ]);
     }
+
+    /**
+     * @Route("/profile", name="user_profile")
+     */
+    public function profile(){
+         return $this->render('user/profile.html.twig');
+     }
+
 }

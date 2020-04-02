@@ -2,11 +2,12 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Article;
+use App\Entity\Comment;
+use App\Entity\Product;
+use App\Entity\Category;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
-use App\Entity\Article;
-use App\Entity\Category;
-use App\Entity\Comment;
 
 class ArticleFixtures extends Fixture
 {
@@ -23,8 +24,13 @@ class ArticleFixtures extends Fixture
 
             $manager->persist($category);
 
-            // Créer entre 4 et 6 articles
 
+            $product = new Product();
+            $product->setName('Produit 1')
+                    ->setPrice("20€");
+
+            // Créer entre 4 et 6 articles
+            
             for($j = 1; $j <= mt_rand(4,6); $j++){
                 $article = new Article();
 
@@ -35,6 +41,8 @@ class ArticleFixtures extends Fixture
                         ->setCategory($category);
 
                 $manager->persist($article);
+
+                $product->addArticle($article);
 
                 // Créer entre 4 et 10 commentaires
 
@@ -52,6 +60,8 @@ class ArticleFixtures extends Fixture
                     $manager->persist($comment);
                 }
             }
+
+            $manager->persist($product);
         }
 
         

@@ -12,6 +12,7 @@
     </article>
 
     <section id="commentaires">
+        <h2>Commentaires</h2>
         {% for comment in article.comments %}
         <div class="comment">
             <div class="row">
@@ -23,6 +24,22 @@
                     <div>
                         {{ comment.content | raw }}
                     </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </section>
+
+    <section id="products" class="mt-5">
+        <h2>Produits</h2>
+        {% for product in article.products %}
+        <div class="product">
+            <div class="row">
+                <div class="col-6">
+                {{ product.name }}
+                </div>
+                <div class="col-6">
+                {{ product.price }}
                 </div>
             </div>
         </div>

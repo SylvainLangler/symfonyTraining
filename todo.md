@@ -13,6 +13,15 @@ A regarder pour le projet
 
     - les relations
 
+    Une catégorie pour plusieurs articles
+
+    Plusieurs commentaires pour Un article
+
+    Un utilisateur a Un profil
+
+    Un article peut avoir plusieurs produits et un produit peut être associé à plusieurs articles
+
+
     - les roles
 
         traiter json avec authorisations en amont
