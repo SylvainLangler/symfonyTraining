@@ -34,4 +34,8 @@
 
 #### [Traductions](https://nouvelle-techno.fr/actualites/live-coding-creer-un-site-multilingue-avec-symfony-4)
 
+#### [Cache](https://symfony.com/doc/current/components/cache.html)
+
+#### [Roles](https://github.com/SylvainLangler/symfonyTraining/tree/master/doc/roles)
+
 

@@ -34,6 +34,11 @@
                     <span class="navbar-text">
                         {{ app.user.firstName }} {{ app.user.lastName }}
                     </span>
+                    {% if is_granted('ROLE_ADMIN') %}
+                    <span class="navbar-text ml-4 mr-4">
+                        Vous êtes un admin ! 
+                    </span>
+                    {% endif %}
                     <li class="nav-item">
                         <a class="nav-link" href="{{ path('app_logout') }}">Logout</a>
                     </li>
