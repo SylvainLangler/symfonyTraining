@@ -16,6 +16,8 @@
 
 ## Liens documentation
 
+### Les indispensables
+
 #### [Informations utiles](https://github.com/SylvainLangler/symfonyTraining/tree/master/doc/informations.md)
 
 #### [Modèles Vues Controleurs](https://github.com/SylvainLangler/symfonyTraining/tree/master/doc/MVC.md)
@@ -27,3 +29,9 @@
 #### [Les formulaires dans Symfony 5](https://github.com/SylvainLangler/symfonyTraining/tree/master/doc/formulaires.md)
 
 #### [La gestion de l'authentification et des utilisateurs](https://github.com/SylvainLangler/symfonyTraining/tree/master/doc/authentification.md)
+
+### Autres
+
+#### [Traductions](https://nouvelle-techno.fr/actualites/live-coding-creer-un-site-multilingue-avec-symfony-4)
+
+
