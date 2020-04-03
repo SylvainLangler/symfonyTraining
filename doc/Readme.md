@@ -8,7 +8,7 @@
 - [x] Multi langues
 - [x] Cache (juste lien symfony)
 - [x] select insertion delete update
-- [ ] Mot de passe oublié
+- [x] Mot de passe oublié
 - [ ] API/AJAX
 - [ ] VueJS
 - [ ] Mails
