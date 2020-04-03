@@ -4,7 +4,7 @@
 
 #### `cd symfonyTraining`
 
-#### Vérifier le .env pour la base de données et potentielles configurations
+#### Vérifier le .env pour la base de données et potentielles configurations (mail)
 
 #### `composer install`
 
@@ -37,5 +37,7 @@
 #### [Cache](https://symfony.com/doc/current/components/cache.html)
 
 #### [Roles](https://github.com/SylvainLangler/symfonyTraining/tree/master/doc/roles.md)
+
+#### [Reset mot de passe](https://nouvelle-techno.fr/actualites/live-coding-activation-de-compte-et-recuperation-de-mot-de-passe-avec-symfony-4)
 
 
