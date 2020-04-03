@@ -1,0 +1,20 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+    <h3>SELECT</h3>
+    <div>Id de l'article: {{ article.id }}</div>
+    <div>Titre de l'article: {{ article.title }}</div>
+
+    <h3>INSERT</h3>
+    <div>Titre de la catégorie insérée: {{ category.title }}</div>
+    <div>Description de la catégorie insérée: {{ category.description }}</div>
+
+    <h3>UPDATE</h3>
+    <div>Id produit: {{ product.id }}</div>
+    <div>Nouveau prix du produit: {{ product.price }}</div>
+
+    <h3>DELETE</h3>
+    <div>Commentaire d'id 15 supprimé</div>
+    
+{% endblock %}

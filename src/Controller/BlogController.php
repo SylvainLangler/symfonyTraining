@@ -5,6 +5,8 @@ namespace App\Controller;
 use App\Entity\Article;
 use App\Entity\Category;
 use App\Repository\ArticleRepository;
+use App\Repository\CommentRepository;
+use App\Repository\ProductRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -114,6 +116,51 @@ class BlogController extends AbstractController
      */
     public function profile(){
          return $this->render('user/profile.html.twig');
-     }
+    }
+
+    /**
+     * @Route("/requetes", name="requetes")
+     */
+    public function requetes(ArticleRepository $articleRepository, ProductRepository $productRepository, CommentRepository $commentRepository, EntityManagerInterface $manager){
+
+        // SELECT
+        $article = $articleRepository->findOneById(5);
+
+        // INSERT
+
+        $category = new Category();
+        $category->setTitle('Catégorie test '.mt_rand(1, 1000))
+                 ->setDescription('Description de la catégorie test');
+
+        $manager->persist($category);
+        $manager->flush();
+
+        // UPDATE
+
+        // Exemple de findOneBy, on peut aussi utiliser findBy pour récupérer un tableau
+        $product = $productRepository->findOneBy([
+            'id' => 1
+            // On peut mettre d'autres "where" ici
+        ]);
+
+        $product->setPrice('40€');
+        $manager->persist($product);
+        $manager->flush();
+
+        // DELETE
+
+        $comment = $commentRepository->findOneById(15);
+
+        if($comment){
+            $manager->remove($comment);
+            $manager->flush();
+        }
+        
+        return $this->render('exemples/requetes.html.twig', [
+            'article' => $article,
+            'category' => $category,
+            'product' => $product
+        ]);
+    }
 
 }

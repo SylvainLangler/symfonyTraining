@@ -28,3 +28,56 @@ Il y a un exemple ici: [https://symfony.com/doc/current/doctrine/associations.ht
 
 ##### Dans les vues on peut ensuite récupérer directement les objets liés, par exemple pour récupérer la catégorie d'un article:
 `{{ article.category.title }}`
+
+##### Les autres types de relation ne sont pas plus complexes, il suffit de l'indiquer au terminal et ensuite de vérifier les modifications dans les entités
+
+# SELECT INSERT UPDATE DELETE
+
+```php
+
+    /**
+     * @Route("/requetes", name="requetes")
+     */
+    public function requetes(ArticleRepository $articleRepository, ProductRepository $productRepository, CommentRepository $commentRepository, EntityManagerInterface $manager){
+
+        // SELECT
+        $article = $articleRepository->findOneById(5);
+
+        // INSERT
+
+        $category = new Category();
+        $category->setTitle('Catégorie test '.mt_rand(1, 1000))
+                 ->setDescription('Description de la catégorie test');
+
+        $manager->persist($category);
+        $manager->flush();
+
+        // UPDATE
+
+        // Exemple de findOneBy, on peut aussi utiliser findBy pour récupérer un tableau
+        $product = $productRepository->findOneBy([
+            'id' => 1
+            // On peut mettre d'autres "where" ici
+        ]);
+
+        $product->setPrice('40€');
+        $manager->persist($product);
+        $manager->flush();
+
+        // DELETE
+
+        $comment = $commentRepository->findOneById(15);
+
+        if($comment){
+            $manager->remove($comment);
+            $manager->flush();
+        }
+        
+        return $this->render('exemples/requetes.html.twig', [
+            'article' => $article,
+            'category' => $category,
+            'product' => $product
+        ]);
+    }
+```
+
