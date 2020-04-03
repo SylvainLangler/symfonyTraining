@@ -149,10 +149,11 @@ class BlogController extends AbstractController
 
         // DELETE
 
-        $comment = $commentRepository->findOneById(15);
+        $article_delete = $articleRepository->findOneById(3);
 
-        if($comment){
-            $manager->remove($comment);
+        if($article_delete){
+            // Lorsque l'on supprime cet article, tous les commentaires liés à cet article sont supprimés également: effet cascade
+            $manager->remove($article_delete);
             $manager->flush();
         }
         
