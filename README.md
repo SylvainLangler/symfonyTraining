@@ -12,6 +12,12 @@
 
 #### `php bin/console doctrine:fixtures:load`
 
+### Pour vueJS:
+
+#### `npm install`
+
+#### `npm run dev`
+
 #### `symfony serve`
 
 ## Liens documentation
@@ -30,6 +36,8 @@
 
 #### [La gestion de l'authentification et des utilisateurs](https://github.com/SylvainLangler/symfonyTraining/tree/master/doc/authentification.md)
 
+#### [VueJS](https://github.com/SylvainLangler/symfonyTraining/tree/master/doc/vuejs.md)
+
 ### Autres
 
 #### [Traductions](https://nouvelle-techno.fr/actualites/live-coding-creer-un-site-multilingue-avec-symfony-4)
@@ -39,5 +47,3 @@
 #### [Roles](https://github.com/SylvainLangler/symfonyTraining/tree/master/doc/roles.md)
 
 #### [Reset mot de passe](https://nouvelle-techno.fr/actualites/live-coding-activation-de-compte-et-recuperation-de-mot-de-passe-avec-symfony-4)
-
-

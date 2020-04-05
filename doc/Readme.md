@@ -10,7 +10,7 @@
 - [x] select insertion delete update
 - [x] Mot de passe oublié
 - [ ] API/AJAX
-- [ ] VueJS
+- [x] VueJS
 - [ ] Mails
 - [ ] Images
 - [ ] JSON/Serialize
