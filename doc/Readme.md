@@ -9,8 +9,8 @@
 - [x] Cache (juste lien symfony)
 - [x] select insertion delete update
 - [x] Mot de passe oublié
-- [ ] API/AJAX
+- [ ] API/AJAX (à faire : [tuto](https://www.youtube.com/watch?v=lygMPwUj9yU) & voir ce qu'est api platform)
 - [x] VueJS
-- [ ] Mails
+- [x] Mails
 - [ ] Images
 - [ ] JSON/Serialize
