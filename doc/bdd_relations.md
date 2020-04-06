@@ -18,7 +18,7 @@ Le nom de la BDD, le user et le password sont définis dans le .env
 
 #### Mettre à jour le script des migrations: `php bin/console make:migration`
 
-#### Lancer les migrations: `php bin/console doctrine:migrations:migrate`
+#### Lancer les migrations: `php bin/console doctrine:migrations:migrate` ou `php bin/console d:m:m`
 
 # Relations entre entités
 

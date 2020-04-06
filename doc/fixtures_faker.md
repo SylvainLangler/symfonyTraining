@@ -35,7 +35,7 @@ class AppFixtures extends Fixture
 }
 
 ```
-##### Pour charger les fixtures: `php bin/console doctrine:fixtures:load`
+##### Pour charger les fixtures: `php bin/console doctrine:fixtures:load` ou `php bin/console d:f:l`
 #### Attention, cela va purger la base de données et mettre les données des fixtures !
 
 # Librairie Faker

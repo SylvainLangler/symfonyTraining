@@ -9,8 +9,9 @@
 - [x] Cache
 - [x] select insertion delete update
 - [x] Mot de passe oublié
-- [ ] API/AJAX (à faire : [tuto](https://www.youtube.com/watch?v=lygMPwUj9yU) & voir ce qu'est api platform)
+- [x] AJAX
+- [ ] API Platform 
+- [ ] JSON/Serialize
 - [x] VueJS
 - [x] Mails
 - [ ] Images
-- [ ] JSON/Serialize
