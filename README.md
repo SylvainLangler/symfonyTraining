@@ -42,6 +42,8 @@
 
 #### [Ajax avec Symfony](https://github.com/SylvainLangler/symfonyTraining/tree/master/doc/ajax.md)
 
+#### [API & ApiPlatform](https://github.com/SylvainLangler/symfonyTraining/tree/master/doc/api.md)
+
 ### Autres
 
 #### [Traductions](https://nouvelle-techno.fr/actualites/live-coding-creer-un-site-multilingue-avec-symfony-4)

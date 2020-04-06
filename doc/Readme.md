@@ -10,8 +10,8 @@
 - [x] select insertion delete update
 - [x] Mot de passe oublié
 - [x] AJAX
-- [ ] API Platform 
-- [ ] JSON/Serialize
+- [x] API Platform 
+- [x] JSON/Serialize
 - [x] VueJS
 - [x] Mails
 - [ ] Images
