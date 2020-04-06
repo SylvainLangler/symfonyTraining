@@ -4,11 +4,14 @@ namespace App\Controller;
 
 use App\Entity\Article;
 use App\Entity\Category;
+use App\Entity\PostLike;
 use App\Repository\ArticleRepository;
 use App\Repository\CommentRepository;
 use App\Repository\ProductRepository;
+use App\Repository\PostLikeRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -162,6 +165,55 @@ class BlogController extends AbstractController
             'category' => $category,
             'product' => $product
         ]);
+    }
+
+    /**
+     * Permet de liker ou unliker un article
+     * 
+     * @Route("/article/{id}/like", name="article_like")
+     */
+    public function like(Article $article, EntityManagerInterface $manager, PostLikeRepository $likeRepo) :
+    Response{
+        $user = $this->getUser();
+
+        // Si aucun utilisateur n'est connecté
+        if(!$user){
+            return $this->json([
+                'code' => 403,
+                'message' => "Pas d'utilisateur connecté / Non autorisé"
+            ], 403);
+        }
+
+        // Si l'article est déjà liké par l'utilisateur, on l'enlève
+        if($article->isLikedByUser($user)){
+            $like = $likeRepo->findOneBy([
+                'article' => $article, 
+                'user' => $user
+            ]);
+
+            $manager->remove($like);
+            $manager->flush();
+
+            return $this->json([
+                'code' => 200,
+                'message' => 'Like bien supprimé',
+                'likes' => $likeRepo->count(['article' => $article])
+            ], 200);
+        }
+
+        // Si l'article n'est pas liké par l'utilisateur, on l'ajoute
+        $like = new PostLike();
+        $like->setArticle($article)
+             ->setUser($user);
+
+        $manager->persist($like);
+        $manager->flush();
+
+        return $this->json([
+            'code' => 200,
+            'message' => 'Like bien ajouté',
+            'likes' => $likeRepo->count(['article' => $article])
+        ], 200);
     }
 
 }

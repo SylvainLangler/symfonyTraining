@@ -2,19 +2,66 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\User;
 use App\Entity\Article;
 use App\Entity\Comment;
 use App\Entity\Product;
+use App\Entity\Profile;
 use App\Entity\Category;
+use App\Entity\PostLike;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class ArticleFixtures extends Fixture
 {
+
+    private $passwordEncoder;
+
+    public function __construct(UserPasswordEncoderInterface $passwordEncoder)
+    {
+        $this->passwordEncoder = $passwordEncoder;
+    }
+
     public function load(ObjectManager $manager)
     {
-
+        
         $faker = \Faker\Factory::create('fr_FR');
+
+        $users = [];
+
+        $user = new User();
+        $profile = new Profile();
+        $profile->setTitle('Profil 1')
+                ->setDescription('Description du profil 1');
+
+        $user->setFirstName('Sylvain')
+             ->setLastName('Langler')
+             ->setEmail('langlersylvain@gmail.com')
+             ->setRoles(['ROLE_ADMIN'])
+             ->setProfile($profile)
+             ->setPassword($this->passwordEncoder->encodePassword(
+            $user,
+            'Sylvain1234'
+        ));
+
+        $users[] = $user;
+
+        $manager->persist($user);
+
+        for($i = 0; $i < 10; $i++){
+            $user = new User();
+            $user->setEmail($faker->email)
+                 ->setFirstName($faker->firstName)
+                 ->setLastName($faker->lastName)
+                 ->setPassword($this->passwordEncoder->encodePassword(
+                    $user,
+                    'Sylvain1234'
+                ));
+            $manager->persist($user);
+            $users[] = $user;
+        }
+
 
         // Créer 3 catégories
         for($i = 1; $i <= 3; $i++){
@@ -58,6 +105,14 @@ class ArticleFixtures extends Fixture
                             ->setArticle($article);
 
                     $manager->persist($comment);
+                }
+
+                // créer des likes
+                for($a = 0; $a < mt_rand(0,10); $a++){
+                    $like = new PostLike();
+                    $like->setArticle($article)
+                        ->setUser($faker->randomElement($users));
+                    $manager->persist($like);
                 }
             }
 

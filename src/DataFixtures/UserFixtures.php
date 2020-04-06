@@ -20,23 +20,40 @@ class UserFixtures extends Fixture
 
     public function load(ObjectManager $manager)
     {
-        $user = new User();
-        $profile = new Profile();
-        $profile->setTitle('Profil 1')
-                ->setDescription('Description du profil 1');
+        // $users = [];
 
-        $user->setFirstName('Sylvain')
-             ->setLastName('Langler')
-             ->setEmail('langlersylvain@gmail.com')
-             ->setRoles(['ROLE_ADMIN'])
-             ->setProfile($profile)
-             ->setPassword($this->passwordEncoder->encodePassword(
-            $user,
-            'Sylvain1234'
-        ));
+        // $user = new User();
+        // $profile = new Profile();
+        // $profile->setTitle('Profil 1')
+        //         ->setDescription('Description du profil 1');
 
-        $manager->persist($user);
+        // $user->setFirstName('Sylvain')
+        //      ->setLastName('Langler')
+        //      ->setEmail('langlersylvain@gmail.com')
+        //      ->setRoles(['ROLE_ADMIN'])
+        //      ->setProfile($profile)
+        //      ->setPassword($this->passwordEncoder->encodePassword(
+        //     $user,
+        //     'Sylvain1234'
+        // ));
 
-        $manager->flush();
+        // $users[] = $user;
+
+        // $manager->persist($user);
+
+        // for($i = 0; $i < 10; $i++){
+        //     $user = new User();
+        //     $user->setEmail($faker->email)
+        //          ->setFirstName($faker->firstName)
+        //          ->setLastName($faker->lastName)
+        //          ->setPassword($this->passwordEncoder->encodePassword(
+        //             $user,
+        //             'Sylvain1234'
+        //         ));
+        //     $manager->persist($user);
+        //     $users[] = $user;
+        // }
+
+        // $manager->flush();
     }
 }

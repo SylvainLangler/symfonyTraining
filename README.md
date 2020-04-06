@@ -40,11 +40,13 @@
 
 #### [VueJS](https://github.com/SylvainLangler/symfonyTraining/tree/master/doc/vuejs.md)
 
+#### [Ajax avec Symfony](https://github.com/SylvainLangler/symfonyTraining/tree/master/doc/ajax.md)
+
 ### Autres
 
 #### [Traductions](https://nouvelle-techno.fr/actualites/live-coding-creer-un-site-multilingue-avec-symfony-4)
 
-#### [Cache](https://symfony.com/doc/current/components/cache.html)
+#### [Cache Symfony](https://symfony.com/doc/current/components/cache.html) & [vidéo](https://www.youtube.com/watch?v=Pw8_EDZOnXA)
 
 #### [Roles](https://github.com/SylvainLangler/symfonyTraining/tree/master/doc/roles.md)
 

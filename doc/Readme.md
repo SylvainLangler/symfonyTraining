@@ -6,7 +6,7 @@
 - [x] Roles
 - [x] Relations entre entités
 - [x] Multi langues
-- [x] Cache (juste lien symfony)
+- [x] Cache
 - [x] select insertion delete update
 - [x] Mot de passe oublié
 - [ ] API/AJAX (à faire : [tuto](https://www.youtube.com/watch?v=lygMPwUj9yU) & voir ce qu'est api platform)
