@@ -24,7 +24,7 @@ class ApiArticleController extends AbstractController
     {
         $articles = $articleRepository->findAll();
 
-        // Normalisation des données: transformer des objets en tableaux associatifs simples et ransformation en texte
+        // Normalisation des données: transformer des objets en tableaux associatifs simples et transformation en texte (=serialization)
 
         // Sans serializer mais avec normalizer:
         // $articlesNormalises = $normalizer->normalize($articles, null, ['groups' => 'article:read']);
