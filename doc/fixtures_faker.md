@@ -46,6 +46,8 @@ class AppFixtures extends Fixture
 
 `composer require fzaninotto/faker --dev`
 
+#### [Documentation](https://github.com/fzaninotto/Faker)
+
 #### Exemple d'utilisation de faker dans une fixture:
 
 ```php
